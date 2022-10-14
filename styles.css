@@ -1,1 +1,9 @@
 
+h1 {
+    text-align: center;
+    font-size: 100px;
+    -webkit-text-stroke: 3px white;
+}
+body {
+    background-color: beige;
+}
