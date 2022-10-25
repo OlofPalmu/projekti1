@@ -4,8 +4,10 @@ h1 {
     font-size: 100px;
     -webkit-text-stroke: 3px white;
 }
-body {
+html, body {
     background-color: white;
+    width: 50%;
+    margin: 0 auto;
 }
 .container{
     width: 50%;
