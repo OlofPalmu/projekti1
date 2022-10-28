@@ -2,21 +2,19 @@
 <html lang="eng">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width-device-width, initial-scale-3.0" />
+    <meta name="viewport" content="width-device-width, initial-scale=1" />
     <link rel="stylesheet" href="styles.css" />
     <title>To Do Lista</title>
   </head>
   <body>
-    <h1>To Do</h1>
-    <h2>Tehtävän suoritettuasi, klikkaa sitä. Poista se kokonaan tuplaklikkaamalla sitä!</h2>
-    <div class="container">
-      <div id="addInfo">
-        <input id="inputField" type="text" placeholder="Lisää tehtävä" required /> 
-        <button id="addToDo" onclick="errorMessage()">Lisää</button>
-        <div class="to-dos" id="toDoContainer">
+    <h1>To Do Lista</h1>
+    <div id="myDIV" class="container">
+<p>Tämä on sinun tehtävälistasi. Täytä sitä halujesi mukaan.</p>
+        <input type="text" id="inputField" placeholder="Lisää tehtävä"> 
+        <span onclick="uusiElementti()" class="addBtn">Lisää</span>
         </div>
-      </div>
-    </div>
+      <ul id="myUL">
+      </ul>
 
     <script src="scripts.js"></script>
   </body>
