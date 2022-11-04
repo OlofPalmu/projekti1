@@ -1,3 +1,5 @@
+
+
 var close = document.getElementsByClassName("close");
 var i;
 for (i = 0; i < close.length; i++) {
@@ -43,7 +45,15 @@ function uusiElementti() {
     close[i].onclick = function () {
       var div = this.parentElement;
       div.style.display = "none";
-      poista();
+      var deleteText = this.parentElement.innerText;
+      var cleanedText = deleteText.slice(0, -1);
+      var list = JSON.parse(localStorage.getItem("tehtävät"));
+      for (i = 0; i < list.length; i++) {
+          if (list[i] == cleanedText) {
+          list.splice(i, 1);
+          }
+      }
+      localStorage.setItem("tehtävät", JSON.stringify(list));
     };
   }
 }
@@ -56,18 +66,4 @@ function tallenna() {
   localStorage.setItem("tehtävät", JSON.stringify(tallennus));
 }
 
-function poista() {
-  localStorage.removeItem("tehtävät");
-}
 
-function hae() {
-  var list = JSON.parse(localStorage.getItem("tehtävät"));
-  if (list != null) {
-    let kpl = list.length;
-
-    for (i = 0; i < kpl; i++) {
-      console.log(list[i]);
-      document.getElementById("myUL").innerHTML += "<li>" + list[i] + "</li>";
-    }
-  }
-}
