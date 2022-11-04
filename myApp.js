@@ -2,7 +2,7 @@ var myNodelist = document.getElementsByTagName("LI");
 var i;
 for (i = 0; i < myNodelist.length; i++) {
   var span = document.createElement("SPAN");
-  var txt = document.createTextNode("\u00D7");
+  var txt = document.createTextNode("x");
   span.className = "close";
   span.appendChild(txt);
   myNodelist[i].appendChild(span);
@@ -24,6 +24,8 @@ list.addEventListener('click', function(ev) {
   }
 }, false);
 
+
+
 function uusiElementti() {
   var li = document.createElement("li");
   var inputValue = document.getElementById("inputField").value;
@@ -31,16 +33,25 @@ function uusiElementti() {
   li.appendChild(t);
   if (inputValue === '') {
     alert("Kirjoita tekstikenttään jotain!");
+    inputField.style.border = "3px solid red";
   } else {
-    document.getElementById("myUL").appendChild(li);
+    document.getElementById("myUL").appendChild(li)
+    inputField.style.border = "none";
+    function tallenna() {
+      console.log()
+      var aa = JSON.parse(localStorage.getItem('tehtävät')) || []; 
+        aa.push(inputValue);
+        localStorage.setItem('tehtävät', JSON.stringify(aa));
+    }
   }
   document.getElementById("inputField").value = "";
 
   var span = document.createElement("SPAN");
-  var txt = document.createTextNode("\u00D7");
+  var txt = document.createTextNode("x");
   span.className = "close";
   span.appendChild(txt);
   li.appendChild(span);
+
 
   for (i = 0; i < close.length; i++) {
     close[i].onclick = function() {
@@ -48,4 +59,23 @@ function uusiElementti() {
       div.style.display = "none";
     }
   }
+}
+
+
+
+
+function hae() {
+  console.log()
+  var list = JSON.parse(localStorage.getItem('tehtävät'));
+
+  if(list != null){
+  let kpl = list.length;
+
+  for (i = 0; i < kpl; i++){
+  console.log(list[i])
+  document.getElementById("myUL").innerHTML+="<LI>"+list[i]+"</LI>";
+  }
+
+}
+
 }

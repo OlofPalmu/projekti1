@@ -110,7 +110,7 @@ ul li {
 
 
 ul li.checked {
-    background: lightgray;
+    background: rgb(75, 240, 83);
     color: black;
     text-decoration: line-through;
     text-align: center;
